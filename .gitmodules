@@ -49,3 +49,6 @@
 [submodule "wolf_controller_core"]
 	path = wolf_controller_core
 	url = git@github.com:graiola/wolf_controller_core.git
+[submodule "ai_utils_msgs"]
+	path = ai_utils_msgs
+	url = git@github.com:graiola/ai_utils_msgs.git
