@@ -52,3 +52,6 @@
 [submodule "ai_utils_msgs"]
 	path = ai_utils_msgs
 	url = git@github.com:graiola/ai_utils_msgs.git
+[submodule "wolf_pack"]
+	path = wolf_pack
+	url = git@github.com:graiola/wolf_pack.git
