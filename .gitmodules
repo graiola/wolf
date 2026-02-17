@@ -28,9 +28,6 @@
 [submodule "wolf_controller_utils"]
 	path = wolf_controller_utils
 	url = git@github.com:graiola/wolf_controller_utils.git
-[submodule "wolf_3d_navigation"]
-	path = wolf_3d_navigation
-	url = git@github.com:graiola/wolf_3d_navigation.git
 [submodule "wolf_controller"]
 	path = wolf_controller
 	url = git@github.com:graiola/wolf_controller.git
