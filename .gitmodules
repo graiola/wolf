@@ -19,9 +19,6 @@
 [submodule "rt_gui"]
 	path = rt_gui
 	url = git@github.com:graiola/rt_gui.git
-[submodule "wolf_navigation"]
-	path = wolf_navigation
-	url = git@github.com:graiola/wolf_navigation.git
 [submodule "wolf_rviz_plugin"]
 	path = wolf_rviz_plugin
 	url = git@github.com:graiola/wolf_rviz_plugin.git
@@ -37,9 +34,6 @@
 [submodule "wolf_planner"]
 	path = wolf_planner
 	url = git@github.com:graiola/wolf_planner.git
-[submodule "wolf_3d_navigation"]
-	path = wolf_3d_navigation
-	url = git@github.com:graiola/wolf_3d_navigation.git
 [submodule "wolf_controller"]
 	path = wolf_controller
 	url = git@github.com:graiola/wolf_controller.git
@@ -49,9 +43,3 @@
 [submodule "wolf_controller_core"]
 	path = wolf_controller_core
 	url = git@github.com:graiola/wolf_controller_core.git
-[submodule "ai_utils_msgs"]
-	path = ai_utils_msgs
-	url = git@github.com:graiola/ai_utils_msgs.git
-[submodule "wolf_pack"]
-	path = wolf_pack
-	url = git@github.com:graiola/wolf_pack.git
