@@ -42,16 +42,13 @@ source install/setup.bash
 5. Launch the controller:
 
 ```bash
-ros2 launch wolf_controller wolf_controller_bringup.launch.xml
+ros2 launch wolf_controller wolf_controller_bringup.launch.xml robot_model:=spot robot_name:=ras_1
 ```
 
 ## ROS1 Setup (Noetic)
 
 For ROS1, use branch `ros1-noetic-pub` and follow the ROS1/catkin instructions.
 
-## Todo
-
-See todo list [here](TODO.md).
 
 ## Changelog
 
