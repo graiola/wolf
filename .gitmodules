@@ -52,6 +52,3 @@
 [submodule "wolf_pack"]
 	path = wolf_pack
 	url = git@github.com:graiola/wolf_pack.git
-[submodule "wolf_c2"]
-	path = wolf_c2
-	url = git@github.com:graiola/wolf_c2.git
