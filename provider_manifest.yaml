@@ -1,0 +1,18 @@
+schema_version: "2.0"
+provider_id: wolf_provider_ros2
+title: ROS 2 WoLF Provider
+version: "1.0.0"
+authority_plane:
+  hosting: single_out_of_process
+  direct_to_edge_teleop: true
+  epoch_fencing: true
+  map_context_alignment:
+    aligned:
+      enabled: true
+    degraded:
+      speed_resultant_cap_mps: 0.5
+    unaligned:
+      fallback: local_frame
+motion_limits:
+  goal_tolerance_xy_m: 0.05
+  goal_tolerance_yaw_rad: 0.05
