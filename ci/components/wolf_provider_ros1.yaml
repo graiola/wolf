@@ -1,0 +1,22 @@
+schema_version: tactix.ci/v1
+name: wolf_provider_ros1
+repository: wolf_provider_ros1
+path: providers/wolf_ros1
+kind: provider
+description: WoLF ROS 1 locomotion/track provider — normalizes provider-native ROS 1 perception feeds into the canonical TrackObservation contract for TACTIX Edge ingest.
+owners: [locomotion]
+depends_on:
+  - tactix_provider_sdk
+tiers:
+  - tier: T0
+    command: "python3 -m compileall wolf_provider_ros1 tests"
+    timeout_seconds: 120
+  - tier: T1
+    command: "python3 -m pytest tests/test_route_neutral_teleop_entry_point.py"
+    timeout_seconds: 600
+  - tier: T2
+    command: "python3 -m pytest tests/test_wolf_ros1_track_provider.py"
+    timeout_seconds: 600
+  - tier: T3
+    command: "colcon build --packages-select wolf_msgs wolf_navigation_utils wolf_controller"
+    timeout_seconds: 1200
