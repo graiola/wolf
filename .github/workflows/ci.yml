@@ -1,0 +1,51 @@
+name: WoLF ROS 2 Provider Continuous Integration
+
+on:
+  pull_request:
+    branches: [ main, master, vendor_refactoring ]
+  push:
+    branches: [ main, master, vendor_refactoring ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  fork_safety_check:
+    name: "Fork Safety & Runner Policy Gate"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect PR source and runner isolation
+        run: |
+          IS_FORK="${{ github.event.pull_request.head.repo.full_name != github.repository && github.event_name == 'pull_request' }}"
+          echo "PR Event: ${{ github.event_name }}"
+          echo "Is external fork PR: ${IS_FORK}"
+          if [ "$IS_FORK" = "true" ]; then
+            echo "Fork PR detected. Privileged self-hosted runners and secret injection are DISABLED."
+          fi
+
+  t0_static:
+    needs: fork_safety_check
+    uses: tactix_deployment/.github/workflows/reusable-static-and-schema.yml@main
+    with:
+      component-id: "wolf_provider_ros2"
+      runner-label: "ubuntu-latest"
+
+  t1_t2_ros_build_test:
+    needs: t0_static
+    uses: tactix_deployment/.github/workflows/reusable-ros-colcon-build-test.yml@main
+    with:
+      component-id: "wolf_provider_ros2"
+      ros-distro: "humble"
+      runner-label: "ubuntu-latest"
+
+  t2_provider_conformance:
+    needs: t0_static
+    uses: tactix_deployment/.github/workflows/reusable-provider-and-edge-conformance.yml@main
+    with:
+      component-id: "wolf_provider_ros2"
+      runner-label: "ubuntu-latest"

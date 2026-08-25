@@ -1,0 +1,22 @@
+schema_version: tactix.ci/v1
+name: wolf_provider_ros2
+repository: wolf_provider_ros2
+path: providers/wolf_ros2
+kind: provider
+description: WoLF ROS 2 locomotion/track provider — single out-of-process Edge authority adapter with epoch fencing and map-context alignment implementing the Provider SDK contract.
+owners: [locomotion]
+depends_on:
+  - tactix_provider_sdk
+tiers:
+  - tier: T0
+    command: "python3 -m compileall test_wolf_ros2_track_provider.py test_wolf_ros2_edge_authority.py"
+    timeout_seconds: 120
+  - tier: T1
+    command: "python3 -m pytest test_wolf_ros2_track_provider.py"
+    timeout_seconds: 600
+  - tier: T2
+    command: "python3 -m pytest test_wolf_ros2_edge_authority.py test_wolf_ros2_track_provider.py"
+    timeout_seconds: 600
+  - tier: T3
+    command: "colcon build --packages-select wolf_msgs wolf_gazebo_resources"
+    timeout_seconds: 1200
