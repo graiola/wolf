@@ -12,7 +12,7 @@ tiers:
     command: "python3 -m compileall test_wolf_ros2_track_provider.py test_wolf_ros2_edge_authority.py"
     timeout_seconds: 120
   - tier: T1
-    command: "python3 -m pytest test_wolf_ros2_track_provider.py"
+    command: "python3 -m pytest test_wolf_ros2_track_provider.py test_wolf_ros2_simulation_acceptance.py"
     timeout_seconds: 600
   - tier: T2
     command: "python3 -m pytest test_wolf_ros2_edge_authority.py test_wolf_ros2_track_provider.py"
